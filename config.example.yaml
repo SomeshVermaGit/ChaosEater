@@ -1,0 +1,110 @@
+# ChaosEater Configuration Example
+# Define chaos experiments for ML pipelines
+
+prometheus:
+  pushgateway_url: "http://localhost:9091"
+  job_name: "chaos_eater"
+
+experiments:
+  # Data Layer Experiments
+  - name: "data_corruption_experiment"
+    layer: "data"
+    fault_type: "data_corruption"
+    duration: 60
+    parameters:
+      corruption_rate: 0.1
+      columns: null
+    rollback_strategy: "auto"
+
+  - name: "missing_data_experiment"
+    layer: "data"
+    fault_type: "missing_data"
+    duration: 60
+    parameters:
+      missing_rate: 0.2
+      columns: ["feature1", "feature2"]
+
+  - name: "distribution_drift_experiment"
+    layer: "data"
+    fault_type: "distribution_drift"
+    duration: 120
+    parameters:
+      magnitude: 0.5
+      columns: null
+
+  - name: "outlier_injection_experiment"
+    layer: "data"
+    fault_type: "outlier_injection"
+    duration: 60
+    parameters:
+      outlier_rate: 0.05
+      magnitude: 3.0
+
+  # Model Layer Experiments
+  - name: "model_drift_experiment"
+    layer: "model"
+    fault_type: "model_drift"
+    duration: 180
+    parameters:
+      drift_rate: 0.15
+      drift_type: "gradual"
+
+  - name: "slow_inference_experiment"
+    layer: "model"
+    fault_type: "slow_inference"
+    duration: 60
+    parameters:
+      latency_ms: 500
+      variance: 0.2
+
+  - name: "prediction_corruption_experiment"
+    layer: "model"
+    fault_type: "prediction_corruption"
+    duration: 60
+    parameters:
+      corruption_rate: 0.1
+      type: "random"
+
+  - name: "model_unavailable_experiment"
+    layer: "model"
+    fault_type: "model_unavailable"
+    duration: 30
+    parameters:
+      failure_rate: 0.5
+
+  # Infrastructure Layer Experiments
+  - name: "network_latency_experiment"
+    layer: "infrastructure"
+    fault_type: "network_latency"
+    duration: 120
+    parameters:
+      latency_ms: 100
+      jitter_ms: 20
+
+  - name: "packet_loss_experiment"
+    layer: "infrastructure"
+    fault_type: "packet_loss"
+    duration: 60
+    parameters:
+      loss_rate: 0.1
+
+  - name: "memory_pressure_experiment"
+    layer: "infrastructure"
+    fault_type: "memory_pressure"
+    duration: 90
+    parameters:
+      memory_mb: 1024
+
+  - name: "cpu_throttle_experiment"
+    layer: "infrastructure"
+    fault_type: "cpu_throttle"
+    duration: 60
+    parameters:
+      throttle_percent: 50
+
+  - name: "storage_bottleneck_experiment"
+    layer: "infrastructure"
+    fault_type: "storage_bottleneck"
+    duration: 60
+    parameters:
+      iops_limit: 100
