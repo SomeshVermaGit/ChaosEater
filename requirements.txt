@@ -3,3 +3,5 @@ pandas>=1.3.0
 pyyaml>=5.4.0
 psutil>=5.8.0
 requests>=2.26.0
+aiohttp>=3.8.0
+prometheus-client>=0.14.0

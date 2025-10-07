@@ -215,11 +215,61 @@ ChaosEater/
 │   └── infra_injector.py       # Infrastructure faults
 ├── observers/
 │   └── metrics_observer.py     # Metrics collection & export
+├── distributed_chaos.py        # Multi-region chaos testing
+├── experiment_history.py       # SQLite-based history tracking
+├── advanced_rollback.py        # Advanced rollback strategies
+├── grafana_dashboard.py        # Grafana dashboard generator
+├── experiment_comparison.py    # A/B testing & comparison
+├── resilience_optimizer.py     # AI-powered optimization
 ├── config.example.yaml         # Example configuration
 └── requirements.txt
 ```
 
 ---
+
+## 🆕 New Features (v2.0)
+
+### **Distributed Chaos Testing**
+- Multi-region chaos experiments
+- Parallel and sequential execution modes
+- Blast radius control
+- Async execution with configurable concurrency
+- Aggregate reporting across regions
+
+### **Experiment History & Analytics**
+- SQLite-based persistent storage
+- Historical trend analysis
+- Experiment comparison and ranking
+- CSV export capabilities
+- Query API for advanced filtering
+
+### **Advanced Rollback Strategies**
+- Immediate rollback
+- Gradual rollback (incremental steps)
+- Canary rollback (test on subset first)
+- Blue-green deployment rollback
+- Circuit breaker-based auto-rollback
+
+### **Grafana Dashboard Generator**
+- Auto-generate Grafana dashboards
+- Pre-built panels for resilience metrics
+- Customizable layouts and queries
+- Alert rule generation
+- Direct push to Grafana API
+
+### **A/B Testing & Comparison**
+- Compare multiple experiments side-by-side
+- A/B test different chaos configurations
+- Statistical analysis and winner determination
+- Detailed comparison reports
+- Experiment ranking by custom metrics
+
+### **AI-Powered Resilience Optimization**
+- ML-based pattern analysis
+- Anomaly detection in experiments
+- Predictive resilience scoring
+- Automated optimization recommendations
+- Parameter suggestion engine
 
 ## 📈 Roadmap
 
@@ -228,14 +278,16 @@ ChaosEater/
 - [x] Infrastructure layer fault injection
 - [x] Metrics collection & observability
 - [x] YAML-based configuration
+- [x] Grafana dashboard templates
+- [x] Advanced rollback strategies
+- [x] Multi-region chaos testing
+- [x] Automated resilience optimization
+- [x] Experiment history tracking
+- [x] A/B testing capabilities
 - [ ] Kubernetes integration (Chaos Mesh)
 - [ ] MLflow integration
 - [ ] Kubeflow integration
 - [ ] Airflow DAG integration
-- [ ] Grafana dashboard templates
-- [ ] Advanced rollback strategies
-- [ ] Multi-region chaos testing
-- [ ] Automated resilience optimization
 
 ---
 
